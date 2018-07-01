@@ -13,6 +13,7 @@ module com.puttysoftware.desktop {
     exports com.puttysoftware.help;
     exports com.puttysoftware.images;
     exports com.puttysoftware.images.edges;
+    exports com.puttysoftware.password;
     exports com.puttysoftware.picturepicker;
     exports com.puttysoftware.scoremanager;
     exports com.puttysoftware.updater;
