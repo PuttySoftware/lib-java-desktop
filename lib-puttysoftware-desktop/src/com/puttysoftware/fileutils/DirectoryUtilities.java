@@ -48,12 +48,12 @@ public final class DirectoryUtilities {
             }
             success = location.delete();
             if (!success) {
-                throw new IOException("Directory deletion failed!");
+                throw new IOException("Directory deletion failed!"); //$NON-NLS-1$
             }
         } else {
             success = location.delete();
             if (!success) {
-                throw new IOException("Directory deletion failed!");
+                throw new IOException("Directory deletion failed!"); //$NON-NLS-1$
             }
         }
     }

@@ -136,7 +136,7 @@ public final class SXSPicturePicker {
         this.radioContainer.setLayout(new GridLayout(rows, this.stackCount));
         this.choiceArray = new JLabel[this.choices.length];
         for (int x = 0; x < this.choices.length; x++) {
-            this.choiceArray[x] = new JLabel("", this.choices[x],
+            this.choiceArray[x] = new JLabel("", this.choices[x], //$NON-NLS-1$
                     SwingConstants.LEFT);
             this.choiceArray[x].setOpaque(true);
             this.choiceArray[x].setBackground(this.savedCHColor);

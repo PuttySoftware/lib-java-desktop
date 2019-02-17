@@ -72,10 +72,10 @@ public final class GraphicalHelpViewer {
     }
 
     public void exportHelp() {
-        String filename = "";
-        String fileOnly = "\\";
+        String filename = ""; //$NON-NLS-1$
+        String fileOnly = "\\"; //$NON-NLS-1$
         String extension;
-        final FileDialog fc = new FileDialog((JFrame) null, "Export Help",
+        final FileDialog fc = new FileDialog((JFrame) null, "Export Help", //$NON-NLS-1$
                 FileDialog.SAVE);
         while (!FilenameChecker.isFilenameOK(fileOnly)) {
             fc.setVisible(true);
@@ -87,19 +87,19 @@ public final class GraphicalHelpViewer {
                 fileOnly = filename.substring(dirOnly.length() + 1);
                 if (!FilenameChecker.isFilenameOK(fileOnly)) {
                     CommonDialogs.showErrorDialog(
-                            "The file name you entered contains illegal characters.\n"
-                                    + "These characters are not allowed: /?<>\\:|\"\n"
-                                    + "Files named con, nul, or prn are illegal, as are files\n"
-                                    + "named com1 through com9 and lpt1 through lpt9.",
-                            "Save");
+                            "The file name you entered contains illegal characters.\n" //$NON-NLS-1$
+                                    + "These characters are not allowed: /?<>\\:|\"\n" //$NON-NLS-1$
+                                    + "Files named con, nul, or prn are illegal, as are files\n" //$NON-NLS-1$
+                                    + "named com1 through com9 and lpt1 through lpt9.", //$NON-NLS-1$
+                            "Save"); //$NON-NLS-1$
                 } else {
                     if (extension != null) {
-                        if (!extension.equals("png")) {
+                        if (!extension.equals("png")) { //$NON-NLS-1$
                             filename = GraphicalHelpViewer
-                                    .getNameWithoutExtension(file) + ".png";
+                                    .getNameWithoutExtension(file) + ".png"; //$NON-NLS-1$
                         }
                     } else {
-                        filename += ".png";
+                        filename += ".png"; //$NON-NLS-1$
                     }
                     final Container c = this.choiceContainer;
                     final Dimension d = c.getPreferredSize();
@@ -112,10 +112,10 @@ public final class GraphicalHelpViewer {
                     }
                     c.paintComponents(bi.createGraphics());
                     try {
-                        ImageIO.write(bi, "PNG", new File(filename));
-                        CommonDialogs.showDialog("Export Successful!");
+                        ImageIO.write(bi, "PNG", new File(filename)); //$NON-NLS-1$
+                        CommonDialogs.showDialog("Export Successful!"); //$NON-NLS-1$
                     } catch (final IOException io) {
-                        CommonDialogs.showDialog("Export Failed!");
+                        CommonDialogs.showDialog("Export Failed!"); //$NON-NLS-1$
                     }
                 }
             } else {

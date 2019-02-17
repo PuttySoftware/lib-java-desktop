@@ -12,7 +12,7 @@ public class ScoreTable {
     protected int scoreCount;
     protected ArrayList<Score> table;
     protected String[] unit;
-    protected static final String DEFAULT_UNIT = "";
+    protected static final String DEFAULT_UNIT = ""; //$NON-NLS-1$
 
     // Constructors
     public ScoreTable() {
@@ -39,7 +39,7 @@ public class ScoreTable {
             if (customUnit[x] == null || customUnit[x].isEmpty()) {
                 this.unit[x] = ScoreTable.DEFAULT_UNIT;
             } else {
-                this.unit[x] = " " + customUnit[x];
+                this.unit[x] = " " + customUnit[x]; //$NON-NLS-1$
             }
         }
     }

@@ -13,7 +13,7 @@ import java.net.URISyntaxException;
 import com.puttysoftware.commondialogs.CommonDialogs;
 
 public class BrowserLauncher {
-    private static final String errMsg = "Error attempting to launch web browser!";
+    private static final String errMsg = "Error attempting to launch web browser!"; //$NON-NLS-1$
 
     public static void openURL(final String url) {
         if (Desktop.isDesktopSupported()) {
@@ -21,14 +21,14 @@ public class BrowserLauncher {
                 Desktop.getDesktop().browse(new URI(url));
             } catch (final IOException e) {
                 CommonDialogs.showErrorDialog(BrowserLauncher.errMsg,
-                        "Updater Error");
+                        "Updater Error"); //$NON-NLS-1$
             } catch (final URISyntaxException e) {
                 CommonDialogs.showErrorDialog(BrowserLauncher.errMsg,
-                        "Updater Error");
+                        "Updater Error"); //$NON-NLS-1$
             }
         } else {
             CommonDialogs.showErrorDialog(BrowserLauncher.errMsg,
-                    "Updater Error");
+                    "Updater Error"); //$NON-NLS-1$
         }
     }
 }

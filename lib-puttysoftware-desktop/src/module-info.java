@@ -7,6 +7,7 @@
  */
 module com.puttysoftware.desktop {
     requires transitive java.desktop;
+
     exports com.puttysoftware.commondialogs;
     exports com.puttysoftware.errorlogger;
     exports com.puttysoftware.fileutils;

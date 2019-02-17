@@ -90,7 +90,7 @@ public class SortedScoreTable extends ScoreTable {
     }
 
     public boolean checkScore(final long[] newScore) {
-        final Score newEntry = new Score(this.scoreCount, newScore, "");
+        final Score newEntry = new Score(this.scoreCount, newScore, ""); //$NON-NLS-1$
         final ArrayList<Score> temp = new ArrayList<>(this.table);
         if (this.sortOrder) {
             // Copy the current table to the temporary table
@@ -102,17 +102,16 @@ public class SortedScoreTable extends ScoreTable {
             // Determine if lowest score would be removed
             return !Collections.min(temp, new Score.ScoreComparatorDesc())
                     .equals(newEntry);
-        } else {
-            // Copy the current table to the temporary table
-            Collections.copy(temp, this.table);
-            // Append the new score to the end
-            temp.add(newEntry);
-            // Sort the score table
-            Collections.sort(temp, new Score.ScoreComparatorAsc());
-            // Determine if highest score would be removed
-            return !Collections.max(temp, new Score.ScoreComparatorAsc())
-                    .equals(newEntry);
         }
+        // Copy the current table to the temporary table
+        Collections.copy(temp, this.table);
+        // Append the new score to the end
+        temp.add(newEntry);
+        // Sort the score table
+        Collections.sort(temp, new Score.ScoreComparatorAsc());
+        // Determine if highest score would be removed
+        return !Collections.max(temp, new Score.ScoreComparatorAsc())
+                .equals(newEntry);
     }
 
     public static SortedScoreTable readSortedScoreTable(final XDataReader xdr)

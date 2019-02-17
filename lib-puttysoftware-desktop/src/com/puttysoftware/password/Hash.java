@@ -11,7 +11,7 @@ public class Hash {
     public static byte[] hash(byte[] input) {
         MessageDigest md = null;
         try {
-            md = MessageDigest.getInstance("SHA-512");
+            md = MessageDigest.getInstance("SHA-512"); //$NON-NLS-1$
         } catch (NoSuchAlgorithmException nsae) {
             return null;
         }

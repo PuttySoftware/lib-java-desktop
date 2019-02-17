@@ -115,9 +115,8 @@ public class CommonDialogs {
                 CommonDialogs.ICON, null, null);
         if (option == JOptionPane.OK_OPTION) {
             return pass.getPassword();
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**

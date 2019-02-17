@@ -11,15 +11,15 @@ import java.util.Date;
 
 class NonFatalLogger {
     // Fields
-    private static final String MAC_PREFIX = "HOME";
-    private static final String WIN_PREFIX = "USERPROFILE";
-    private static final String UNIX_PREFIX = "HOME";
-    private static final String MAC_DIR = "/Library/Logs/CrashReporter/";
-    private static final String WIN_DIR = "\\Crash\\";
-    private static final String UNIX_DIR = "/Crash/";
-    private static final String MAC_EXT = ".nonfatal";
-    private static final String WIN_EXT = ".nonfatal";
-    private static final String UNIX_EXT = ".nonfatal";
+    private static final String MAC_PREFIX = "HOME"; //$NON-NLS-1$
+    private static final String WIN_PREFIX = "USERPROFILE"; //$NON-NLS-1$
+    private static final String UNIX_PREFIX = "HOME"; //$NON-NLS-1$
+    private static final String MAC_DIR = "/Library/Logs/CrashReporter/"; //$NON-NLS-1$
+    private static final String WIN_DIR = "\\Crash\\"; //$NON-NLS-1$
+    private static final String UNIX_DIR = "/Crash/"; //$NON-NLS-1$
+    private static final String MAC_EXT = ".nonfatal"; //$NON-NLS-1$
+    private static final String WIN_EXT = ".nonfatal"; //$NON-NLS-1$
+    private static final String UNIX_EXT = ".nonfatal"; //$NON-NLS-1$
     private final Throwable t;
     private final Calendar c;
     private final String p;
@@ -40,7 +40,7 @@ class NonFatalLogger {
             if (!parent.exists()) {
                 final boolean res = parent.mkdirs();
                 if (!res) {
-                    throw new FileNotFoundException("Cannot make directories!");
+                    throw new FileNotFoundException("Cannot make directories!"); //$NON-NLS-1$
                 }
             }
             // Print to the file
@@ -56,11 +56,11 @@ class NonFatalLogger {
     }
 
     private static String getLogDirPrefix() {
-        final String osName = System.getProperty("os.name");
-        if (osName.indexOf("Mac OS X") != -1) {
+        final String osName = System.getProperty("os.name"); //$NON-NLS-1$
+        if (osName.indexOf("Mac OS X") != -1) { //$NON-NLS-1$
             // Mac OS X
             return System.getenv(NonFatalLogger.MAC_PREFIX);
-        } else if (osName.indexOf("Windows") != -1) {
+        } else if (osName.indexOf("Windows") != -1) { //$NON-NLS-1$
             // Windows
             return System.getenv(NonFatalLogger.WIN_PREFIX);
         } else {
@@ -70,11 +70,11 @@ class NonFatalLogger {
     }
 
     private static String getLogDirectory() {
-        final String osName = System.getProperty("os.name");
-        if (osName.indexOf("Mac OS X") != -1) {
+        final String osName = System.getProperty("os.name"); //$NON-NLS-1$
+        if (osName.indexOf("Mac OS X") != -1) { //$NON-NLS-1$
             // Mac OS X
             return NonFatalLogger.MAC_DIR;
-        } else if (osName.indexOf("Windows") != -1) {
+        } else if (osName.indexOf("Windows") != -1) { //$NON-NLS-1$
             // Windows
             return NonFatalLogger.WIN_DIR;
         } else {
@@ -84,11 +84,11 @@ class NonFatalLogger {
     }
 
     private static String getLogFileExtension() {
-        final String osName = System.getProperty("os.name");
-        if (osName.indexOf("Mac OS X") != -1) {
+        final String osName = System.getProperty("os.name"); //$NON-NLS-1$
+        if (osName.indexOf("Mac OS X") != -1) { //$NON-NLS-1$
             // Mac OS X
             return NonFatalLogger.MAC_EXT;
-        } else if (osName.indexOf("Windows") != -1) {
+        } else if (osName.indexOf("Windows") != -1) { //$NON-NLS-1$
             // Windows
             return NonFatalLogger.WIN_EXT;
         } else {
@@ -100,7 +100,7 @@ class NonFatalLogger {
     private String getStampSuffix() {
         final Date time = this.c.getTime();
         final SimpleDateFormat sdf = new SimpleDateFormat(
-                "'_'yyyyMMdd'_'HHmmssSSS");
+                "'_'yyyyMMdd'_'HHmmssSSS"); //$NON-NLS-1$
         return sdf.format(time);
     }
 

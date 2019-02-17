@@ -21,7 +21,7 @@ public final class Score {
     public Score() {
         this.scores = new long[1];
         this.scores[0] = 0L;
-        this.name = "Nobody";
+        this.name = "Nobody"; //$NON-NLS-1$
     }
 
     public Score(final long newScore, final String newName) {
@@ -35,7 +35,7 @@ public final class Score {
         for (int x = 0; x < mv; x++) {
             this.scores[x] = 0L;
         }
-        this.name = "Nobody";
+        this.name = "Nobody"; //$NON-NLS-1$
     }
 
     public Score(final int mv, final long[] newScore, final String newName) {
@@ -109,10 +109,9 @@ public final class Score {
                     if (z == lesser - 1) {
                         // Run out of things to compare
                         return 0;
-                    } else {
-                        // Keep looping
-                        continue;
                     }
+                    // Keep looping
+                    continue;
                 }
             }
             // Shouldn't ever get here
@@ -139,10 +138,9 @@ public final class Score {
                     if (z == lesser - 1) {
                         // Run out of things to compare
                         return 0;
-                    } else {
-                        // Keep looping
-                        continue;
                     }
+                    // Keep looping
+                    continue;
                 }
             }
             // Shouldn't ever get here

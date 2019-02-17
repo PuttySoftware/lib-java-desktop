@@ -7,46 +7,46 @@ public class FilenameChecker {
     }
 
     public static boolean isFilenameOK(final String filename) {
-        if (filename.contains("/")) {
+        if (filename.contains("/")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("?")) {
+        if (filename.contains("?")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("<")) {
+        if (filename.contains("<")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains(">")) {
+        if (filename.contains(">")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("\\")) {
+        if (filename.contains("\\")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains(":")) {
+        if (filename.contains(":")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("*")) {
+        if (filename.contains("*")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("|")) {
+        if (filename.contains("|")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.contains("\"")) {
+        if (filename.contains("\"")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.equals("con")) {
+        if (filename.equals("con")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.equals("nul")) {
+        if (filename.equals("nul")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.equals("prn")) {
+        if (filename.equals("prn")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.length() == 4 && filename.matches("com[1-9]")) {
+        if (filename.length() == 4 && filename.matches("com[1-9]")) { //$NON-NLS-1$
             return false;
         }
-        if (filename.length() == 4 && filename.matches("lpt[1-9]")) {
+        if (filename.length() == 4 && filename.matches("lpt[1-9]")) { //$NON-NLS-1$
             return false;
         }
         return true;

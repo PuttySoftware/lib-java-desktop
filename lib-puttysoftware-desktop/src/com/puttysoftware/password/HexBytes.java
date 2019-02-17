@@ -17,8 +17,8 @@ public class HexBytes {
         if (in == null || in.length <= 0) {
             return null;
         }
-        String pseudo[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                "A", "B", "C", "D", "E", "F" };
+        String pseudo[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+                "A", "B", "C", "D", "E", "F" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
         StringBuffer out = new StringBuffer(in.length * 2);
         while (i < in.length) {
             ch = (byte) (in[i] & 0xF0); // Strip off high nibble
@@ -41,8 +41,8 @@ public class HexBytes {
             return null;
         }
         String fIn = in.toUpperCase();
-        String pseudo[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                "A", "B", "C", "D", "E", "F" };
+        String pseudo[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$ //$NON-NLS-9$ //$NON-NLS-10$
+                "A", "B", "C", "D", "E", "F" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
         byte[] out = new byte[fIn.length() / 2];
         while (i < fIn.length()) {
             ch = fIn.charAt(i);

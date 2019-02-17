@@ -31,14 +31,14 @@ public class ProductData {
             final int minor, final int bugfix, final int code, final int beta) {
         String rt;
         if (code == ProductData.CODE_ALPHA) {
-            rt = "alpha_";
+            rt = "alpha_"; //$NON-NLS-1$
         } else if (code == ProductData.CODE_BETA) {
-            rt = "beta_";
+            rt = "beta_"; //$NON-NLS-1$
         } else {
-            rt = "stable_";
+            rt = "stable_"; //$NON-NLS-1$
         }
-        final String updatetxt = "version.txt";
-        final String blurbtxt = "blurb.txt";
+        final String updatetxt = "version.txt"; //$NON-NLS-1$
+        final String blurbtxt = "blurb.txt"; //$NON-NLS-1$
         try {
             this.updateURL = new URL(update + rt + updatetxt);
         } catch (final MalformedURLException mu1) {

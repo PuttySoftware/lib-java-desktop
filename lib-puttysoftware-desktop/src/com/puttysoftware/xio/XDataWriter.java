@@ -8,7 +8,7 @@ public class XDataWriter implements AutoCloseable {
     // Fields
     private final BufferedWriter bw;
     private final String docTag;
-    private static final String END_OF_LINE = "\r\n";
+    private static final String END_OF_LINE = "\r\n"; //$NON-NLS-1$
 
     // Constructors
     public XDataWriter(final String filename, final String newDocTag)
@@ -27,39 +27,39 @@ public class XDataWriter implements AutoCloseable {
     }
 
     public void writeDouble(final double d) throws IOException {
-        this.bw.write("<" + XDataConstants.DOUBLE_TAG + ">" + Double.toString(d)
-                + "</" + XDataConstants.DOUBLE_TAG + ">"
+        this.bw.write("<" + XDataConstants.DOUBLE_TAG + ">" + Double.toString(d) //$NON-NLS-1$ //$NON-NLS-2$
+                + "</" + XDataConstants.DOUBLE_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
                 + XDataWriter.END_OF_LINE);
     }
 
     public void writeInt(final int i) throws IOException {
-        this.bw.write("<" + XDataConstants.INT_TAG + ">" + Integer.toString(i)
-                + "</" + XDataConstants.INT_TAG + ">"
+        this.bw.write("<" + XDataConstants.INT_TAG + ">" + Integer.toString(i) //$NON-NLS-1$ //$NON-NLS-2$
+                + "</" + XDataConstants.INT_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
                 + XDataWriter.END_OF_LINE);
     }
 
     public void writeLong(final long l) throws IOException {
-        this.bw.write("<" + XDataConstants.LONG_TAG + ">" + Long.toString(l)
-                + "</" + XDataConstants.LONG_TAG + ">"
+        this.bw.write("<" + XDataConstants.LONG_TAG + ">" + Long.toString(l) //$NON-NLS-1$ //$NON-NLS-2$
+                + "</" + XDataConstants.LONG_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
                 + XDataWriter.END_OF_LINE);
     }
 
     public void writeByte(final byte b) throws IOException {
-        this.bw.write("<" + XDataConstants.BYTE_TAG + ">" + Byte.toString(b)
-                + "</" + XDataConstants.BYTE_TAG + ">"
+        this.bw.write("<" + XDataConstants.BYTE_TAG + ">" + Byte.toString(b) //$NON-NLS-1$ //$NON-NLS-2$
+                + "</" + XDataConstants.BYTE_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
                 + XDataWriter.END_OF_LINE);
     }
 
     public void writeBoolean(final boolean b) throws IOException {
-        this.bw.write("<" + XDataConstants.BOOLEAN_TAG + ">"
-                + Boolean.toString(b) + "</" + XDataConstants.BOOLEAN_TAG + ">"
+        this.bw.write("<" + XDataConstants.BOOLEAN_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
+                + Boolean.toString(b) + "</" + XDataConstants.BOOLEAN_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
                 + XDataWriter.END_OF_LINE);
     }
 
     public void writeString(final String s) throws IOException {
-        this.bw.write("<" + XDataConstants.STRING_TAG + ">"
-                + XDataWriter.replaceSpecialCharacters(s) + "</"
-                + XDataConstants.STRING_TAG + ">" + XDataWriter.END_OF_LINE);
+        this.bw.write("<" + XDataConstants.STRING_TAG + ">" //$NON-NLS-1$ //$NON-NLS-2$
+                + XDataWriter.replaceSpecialCharacters(s) + "</" //$NON-NLS-1$
+                + XDataConstants.STRING_TAG + ">" + XDataWriter.END_OF_LINE); //$NON-NLS-1$
     }
 
     private void writeXHeader() throws IOException {
@@ -67,21 +67,21 @@ public class XDataWriter implements AutoCloseable {
     }
 
     private void writeOpeningDocTag() throws IOException {
-        this.bw.write("<" + this.docTag + ">" + XDataWriter.END_OF_LINE);
+        this.bw.write("<" + this.docTag + ">" + XDataWriter.END_OF_LINE); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private void writeClosingDocTag() throws IOException {
-        this.bw.write("</" + this.docTag + ">");
+        this.bw.write("</" + this.docTag + ">"); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private static String replaceSpecialCharacters(final String s) {
         String r = s;
-        r = r.replace("&", "&amp;");
-        r = r.replace("<", "&lt;");
-        r = r.replace(">", "&gt;");
-        r = r.replace("\"", "&quot;");
-        r = r.replace("\'", "&apos;");
-        r = r.replace("\r", "");
-        return r.replace("\n", "&#xA;");
+        r = r.replace("&", "&amp;"); //$NON-NLS-1$ //$NON-NLS-2$
+        r = r.replace("<", "&lt;"); //$NON-NLS-1$ //$NON-NLS-2$
+        r = r.replace(">", "&gt;"); //$NON-NLS-1$ //$NON-NLS-2$
+        r = r.replace("\"", "&quot;"); //$NON-NLS-1$ //$NON-NLS-2$
+        r = r.replace("\'", "&apos;"); //$NON-NLS-1$ //$NON-NLS-2$
+        r = r.replace("\r", ""); //$NON-NLS-1$ //$NON-NLS-2$
+        return r.replace("\n", "&#xA;"); //$NON-NLS-1$ //$NON-NLS-2$
     }
 }

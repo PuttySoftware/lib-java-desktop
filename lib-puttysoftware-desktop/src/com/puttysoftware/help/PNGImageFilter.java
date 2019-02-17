@@ -12,18 +12,17 @@ public class PNGImageFilter extends FileFilter {
         }
         final String extension = PNGImageFilter.getExtension(f);
         if (extension != null) {
-            if (extension.equals("png")) {
+            if (extension.equals("png")) { //$NON-NLS-1$
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
         return false;
     }
 
     @Override
     public String getDescription() {
-        return "PNG Images (.png)";
+        return "PNG Images (.png)"; //$NON-NLS-1$
     }
 
     private static String getExtension(final File f) {

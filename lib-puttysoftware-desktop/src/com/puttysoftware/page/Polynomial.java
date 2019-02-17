@@ -66,8 +66,8 @@ public class Polynomial {
         int x;
         long result = 0;
         for (x = 0; x < this.coefficients.length; x++) {
-            result += (long) (this.coefficients[x][Polynomial.DEFAULT_PARAM] * Math
-                    .pow(paramValue, x));
+            result += (long) (this.coefficients[x][Polynomial.DEFAULT_PARAM]
+                    * Math.pow(paramValue, x));
         }
         return result;
     }
@@ -77,8 +77,8 @@ public class Polynomial {
         long result = 0;
         for (x = 0; x < this.coefficients.length; x++) {
             for (y = 0; y < this.coefficients[x].length; y++) {
-                result += (long) (this.coefficients[x][y] * Math.pow(
-                        paramValues[y], x));
+                result += (long) (this.coefficients[x][y]
+                        * Math.pow(paramValues[y], x));
             }
         }
         return result;

@@ -4,14 +4,14 @@ import com.puttysoftware.commondialogs.CommonDialogs;
 
 public final class PageViewer {
     // Private constants
-    private static final String ENTRY_PROMPT_PART_1 = "Enter value for ";
-    private static final String ENTRY_PROMPT_PART_2 = "parameter:";
-    private static final String SUFFIX_N = "th";
-    private static final String SUFFIX_1 = "st";
-    private static final String SUFFIX_2 = "nd";
-    private static final String SUFFIX_3 = "rd";
-    private static final String VIEWER_STRING = "Page Viewer";
-    private static final String EXPERIENCE_VIEWER_STRING = "Experience Page Viewer";
+    private static final String ENTRY_PROMPT_PART_1 = "Enter value for "; //$NON-NLS-1$
+    private static final String ENTRY_PROMPT_PART_2 = "parameter:"; //$NON-NLS-1$
+    private static final String SUFFIX_N = "th"; //$NON-NLS-1$
+    private static final String SUFFIX_1 = "st"; //$NON-NLS-1$
+    private static final String SUFFIX_2 = "nd"; //$NON-NLS-1$
+    private static final String SUFFIX_3 = "rd"; //$NON-NLS-1$
+    private static final String VIEWER_STRING = "Page Viewer"; //$NON-NLS-1$
+    private static final String EXPERIENCE_VIEWER_STRING = "Experience Page Viewer"; //$NON-NLS-1$
 
     // Private constructor
     private PageViewer() {
@@ -31,7 +31,7 @@ public final class PageViewer {
         } else {
             boolean viewAsArray = true;
             int returnCode = CommonDialogs.showConfirmDialog(
-                    "View as a list, or as single values?", viewerString);
+                    "View as a list, or as single values?", viewerString); //$NON-NLS-1$
             if (returnCode == CommonDialogs.YES_OPTION) {
                 viewAsArray = true;
             } else {
@@ -49,10 +49,10 @@ public final class PageViewer {
         long[] lData = page.evaluateToArray();
         String[] sData = new String[lData.length];
         for (int x = 0; x < lData.length; x++) {
-            sData[x] = Integer.valueOf(x + 1).toString() + ": "
+            sData[x] = Integer.valueOf(x + 1).toString() + ": " //$NON-NLS-1$
                     + Long.valueOf(lData[x]).toString();
         }
-        CommonDialogs.showInputDialog("List of values:", viewerString, sData,
+        CommonDialogs.showInputDialog("List of values:", viewerString, sData, //$NON-NLS-1$
                 sData[0]);
     }
 
@@ -77,9 +77,11 @@ public final class PageViewer {
                     suffix = SUFFIX_N;
                 }
                 while (!valid) {
-                    rawInput = CommonDialogs.showTextInputDialog(
-                            ENTRY_PROMPT_PART_1 + (x + 1) + suffix + " "
-                                    + ENTRY_PROMPT_PART_2, viewerString);
+                    rawInput = CommonDialogs
+                            .showTextInputDialog(
+                                    ENTRY_PROMPT_PART_1 + (x + 1) + suffix + " " //$NON-NLS-1$
+                                            + ENTRY_PROMPT_PART_2,
+                                    viewerString);
                     try {
                         input = Integer.parseInt(rawInput);
                         if (input < 0) {
@@ -93,19 +95,18 @@ public final class PageViewer {
                         // Ignore exception
                     }
                     if (!valid) {
-                        CommonDialogs
-                                .showErrorDialog(
-                                        "The input provided was invalid - please try again.",
-                                        viewerString);
+                        CommonDialogs.showErrorDialog(
+                                "The input provided was invalid - please try again.", //$NON-NLS-1$
+                                viewerString);
                     }
                 }
                 paramValues[x] = input;
             }
             long value = page.evaluate(paramValues);
-            CommonDialogs.showTitledDialog("Value for the given parameters: "
+            CommonDialogs.showTitledDialog("Value for the given parameters: " //$NON-NLS-1$
                     + Long.valueOf(value).toString(), viewerString);
-            int returnCode = CommonDialogs.showConfirmDialog(
-                    "View more values?", viewerString);
+            int returnCode = CommonDialogs
+                    .showConfirmDialog("View more values?", viewerString); //$NON-NLS-1$
             if (returnCode == CommonDialogs.YES_OPTION) {
                 viewMore = true;
             } else {
@@ -122,9 +123,9 @@ public final class PageViewer {
             String rawInput;
             int input = 0;
             while (!valid) {
-                rawInput = CommonDialogs
-                        .showTextInputDialog(ENTRY_PROMPT_PART_1
-                                + ENTRY_PROMPT_PART_2, viewerString);
+                rawInput = CommonDialogs.showTextInputDialog(
+                        ENTRY_PROMPT_PART_1 + ENTRY_PROMPT_PART_2,
+                        viewerString);
                 try {
                     input = Integer.parseInt(rawInput);
                     if (input < 0) {
@@ -138,18 +139,17 @@ public final class PageViewer {
                     // Ignore exception
                 }
                 if (!valid) {
-                    CommonDialogs
-                            .showErrorDialog(
-                                    "The input provided was invalid - please try again.",
-                                    viewerString);
+                    CommonDialogs.showErrorDialog(
+                            "The input provided was invalid - please try again.", //$NON-NLS-1$
+                            viewerString);
                 }
             }
             paramValue = input;
             long value = page.evaluate(paramValue);
             CommonDialogs.showTitledDialog(
-                    "Value: " + Long.valueOf(value).toString(), viewerString);
-            int returnCode = CommonDialogs.showConfirmDialog(
-                    "View more values?", viewerString);
+                    "Value: " + Long.valueOf(value).toString(), viewerString); //$NON-NLS-1$
+            int returnCode = CommonDialogs
+                    .showConfirmDialog("View more values?", viewerString); //$NON-NLS-1$
             if (returnCode == CommonDialogs.YES_OPTION) {
                 viewMore = true;
             } else {

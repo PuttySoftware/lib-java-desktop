@@ -9,8 +9,8 @@ import com.puttysoftware.commondialogs.CommonDialogs;
 
 public class ScoreManager {
     // Fields and Constants
-    private static final String NAME_PROMPT = "Enter a name for the score list:";
-    private static final String DIALOG_TITLE = "Score Manager";
+    private static final String NAME_PROMPT = "Enter a name for the score list:"; //$NON-NLS-1$
+    private static final String DIALOG_TITLE = "Score Manager"; //$NON-NLS-1$
     public static final boolean SORT_ORDER_DESCENDING = false;
     protected SortedScoreTable table;
     private String name;
@@ -20,7 +20,7 @@ public class ScoreManager {
     // Constructors
     public ScoreManager() {
         this.table = new SortedScoreTable();
-        this.name = "";
+        this.name = ""; //$NON-NLS-1$
         this.title = ScoreManager.DIALOG_TITLE;
         this.viewerTitle = ScoreManager.DIALOG_TITLE;
     }
@@ -30,8 +30,8 @@ public class ScoreManager {
             final String[] customUnit) {
         this.table = new SortedScoreTable(mv, length, sortOrder, startingScore,
                 customUnit);
-        this.name = "";
-        if (customTitle == null || customTitle.equals("")) {
+        this.name = ""; //$NON-NLS-1$
+        if (customTitle == null || customTitle.equals("")) { //$NON-NLS-1$
             this.title = ScoreManager.DIALOG_TITLE;
         } else {
             this.title = customTitle;

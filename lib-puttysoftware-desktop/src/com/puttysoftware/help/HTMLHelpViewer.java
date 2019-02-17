@@ -21,8 +21,8 @@ public final class HTMLHelpViewer {
         try {
             this.helpContents = new JEditorPane(helpPage);
         } catch (final Exception e) {
-            this.helpContents = new JEditorPane("text/plain",
-                    "An error occurred while fetching the help contents.");
+            this.helpContents = new JEditorPane("text/plain", //$NON-NLS-1$
+                    "An error occurred while fetching the help contents."); //$NON-NLS-1$
         }
         this.helpContents.setEditable(false);
         this.scrollPane = new JScrollPane(this.helpContents);

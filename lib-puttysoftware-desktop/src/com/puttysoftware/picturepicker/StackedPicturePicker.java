@@ -96,7 +96,7 @@ public final class StackedPicturePicker {
         for (int x = 0; x < rows; x++) {
             for (int y = 0; y < this.stackCount; y++) {
                 if (picCounter < this.choices.length) {
-                    this.choiceArray[picCounter] = new JLabel("",
+                    this.choiceArray[picCounter] = new JLabel("", //$NON-NLS-1$
                             this.choices[picCounter], SwingConstants.LEFT);
                     this.choiceArray[picCounter].setOpaque(true);
                     this.choiceArray[picCounter]
@@ -104,7 +104,7 @@ public final class StackedPicturePicker {
                     this.pickerContainer.add(this.choiceArray[picCounter]);
                 } else if (rowCounter == rows - 2) {
                     // Add spacer
-                    final JLabel spacer = new JLabel("",
+                    final JLabel spacer = new JLabel("", //$NON-NLS-1$
                             new BufferedImageIcon(this.imageSize,
                                     this.savedCHColor),
                             SwingConstants.LEFT);
@@ -130,7 +130,7 @@ public final class StackedPicturePicker {
                     this.pickerContainer.add(this.radioButtons[radioCounter]);
                 } else if (rowCounter == rows - 1) {
                     // Add spacer
-                    final JLabel spacer = new JLabel("",
+                    final JLabel spacer = new JLabel("", //$NON-NLS-1$
                             new BufferedImageIcon(this.imageSize,
                                     this.savedCHColor),
                             SwingConstants.LEFT);

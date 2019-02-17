@@ -8,16 +8,16 @@ public final class PageEditor {
     public static final int DEFAULT_MAX_POWER = 6;
     public static final int DEFAULT_PARAMS = 1;
     public static final int DEFAULT_MAX_RANGE = 99;
-    private static final String SUFFIX_N = "th";
-    private static final String SUFFIX_1 = "st";
-    private static final String SUFFIX_2 = "nd";
-    private static final String SUFFIX_3 = "rd";
-    private static final String ENTRY_PROMPT_PART_1 = " coefficient for ";
-    private static final String ENTRY_PROMPT_PART_2 = " parameter:";
-    private static final String EDITOR_STRING = "Page Editor";
-    private static final String EXPERIENCE_EDITOR_STRING = "Experience Page Editor";
-    private static final String DIALOG_PROMPT = "Do you want to save this page?";
-    private static final String DIALOG_TITLE = "Save?";
+    private static final String SUFFIX_N = "th"; //$NON-NLS-1$
+    private static final String SUFFIX_1 = "st"; //$NON-NLS-1$
+    private static final String SUFFIX_2 = "nd"; //$NON-NLS-1$
+    private static final String SUFFIX_3 = "rd"; //$NON-NLS-1$
+    private static final String ENTRY_PROMPT_PART_1 = " coefficient for "; //$NON-NLS-1$
+    private static final String ENTRY_PROMPT_PART_2 = " parameter:"; //$NON-NLS-1$
+    private static final String EDITOR_STRING = "Page Editor"; //$NON-NLS-1$
+    private static final String EXPERIENCE_EDITOR_STRING = "Experience Page Editor"; //$NON-NLS-1$
+    private static final String DIALOG_PROMPT = "Do you want to save this page?"; //$NON-NLS-1$
+    private static final String DIALOG_TITLE = "Save?"; //$NON-NLS-1$
 
     // Constructors
     public PageEditor() {
@@ -73,13 +73,12 @@ public final class PageEditor {
                     }
                     inputValid = false;
                     while (!inputValid) {
-                        rawInput = CommonDialogs
-                                .showTextInputDialogWithDefault(
-                                        x + xSuffix + ENTRY_PROMPT_PART_1 + y
-                                                + ySuffix + ENTRY_PROMPT_PART_2,
-                                        editorString,
-                                        Double.valueOf(this.page.getCoefficient(x,
-                                                y)).toString());
+                        rawInput = CommonDialogs.showTextInputDialogWithDefault(
+                                x + xSuffix + ENTRY_PROMPT_PART_1 + y + ySuffix
+                                        + ENTRY_PROMPT_PART_2,
+                                editorString,
+                                Double.valueOf(this.page.getCoefficient(x, y))
+                                        .toString());
                         try {
                             input = Double.parseDouble(rawInput);
                             if (input < 0.0) {
@@ -93,10 +92,9 @@ public final class PageEditor {
                             return null;
                         }
                         if (!inputValid) {
-                            CommonDialogs
-                                    .showErrorDialog(
-                                            "The input provided was invalid - please try again.",
-                                            editorString);
+                            CommonDialogs.showErrorDialog(
+                                    "The input provided was invalid - please try again.", //$NON-NLS-1$
+                                    editorString);
                         }
                     }
                     this.page.setCoefficient(x, y, input);

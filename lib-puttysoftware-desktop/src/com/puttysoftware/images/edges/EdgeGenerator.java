@@ -6,14 +6,14 @@ import com.puttysoftware.images.BufferedImageIcon;
 
 public class EdgeGenerator {
     // Constants
-    private static final String[] NAME_SUFFIXES = new String[] { "_south",
-            "_east", "_southeast", "_northeast", "_southwest", "_northwest",
-            "_north", "_west", "_southeast_inverted", "_northeast_inverted",
-            "_southwest_inverted", "_northwest_inverted", };
+    private static final String[] NAME_SUFFIXES = new String[] { "_south", //$NON-NLS-1$
+            "_east", "_southeast", "_northeast", "_southwest", "_northwest", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
+            "_north", "_west", "_southeast_inverted", "_northeast_inverted", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+            "_southwest_inverted", "_northwest_inverted", }; //$NON-NLS-1$ //$NON-NLS-2$
     private static final String[] FRIENDLY_NAME_SUFFIXES = new String[] {
-            "South", "East", "Southeast", "Northeast", "Southwest", "Northwest",
-            "North", "West", "Southeast Inverted", "Northeast Inverted",
-            "Southwest Inverted", "Northwest Inverted", };
+            "South", "East", "Southeast", "Northeast", "Southwest", "Northwest", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$
+            "North", "West", "Southeast Inverted", "Northeast Inverted", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+            "Southwest Inverted", "Northwest Inverted", }; //$NON-NLS-1$ //$NON-NLS-2$
 
     // Constructor
     private EdgeGenerator() {
@@ -25,14 +25,14 @@ public class EdgeGenerator {
             final EdgePattern pattern) {
         if (img1 == null || img2 == null) {
             throw new IllegalArgumentException(
-                    "Input images must not be null!");
+                    "Input images must not be null!"); //$NON-NLS-1$
         }
         if (img1.getWidth() != img2.getWidth()
                 || img1.getHeight() != img2.getHeight()
                 || img1.getWidth() != img2.getHeight()
                 || img1.getHeight() != img2.getWidth()) {
             throw new IllegalArgumentException(
-                    "Input images must be the same size and square!");
+                    "Input images must be the same size and square!"); //$NON-NLS-1$
         }
         final BufferedImageIcon result = new BufferedImageIcon(img1);
         final int dist = img1.getHeight();
@@ -92,7 +92,7 @@ public class EdgeGenerator {
                         break;
                     default:
                         throw new IllegalArgumentException(
-                                "Pattern is invalid: Direction must be HORIZONTAL or VERTICAL for lines!");
+                                "Pattern is invalid: Direction must be HORIZONTAL or VERTICAL for lines!"); //$NON-NLS-1$
                     }
                     break;
                 case CORNER:
@@ -191,12 +191,12 @@ public class EdgeGenerator {
                         break;
                     default:
                         throw new IllegalArgumentException(
-                                "Pattern is invalid: Direction must be NORTHWEST, NORTHEAST, SOUTHWEST, or SOUTHEAST for corners!");
+                                "Pattern is invalid: Direction must be NORTHWEST, NORTHEAST, SOUTHWEST, or SOUTHEAST for corners!"); //$NON-NLS-1$
                     }
                     break;
                 default:
                     throw new IllegalArgumentException(
-                            "Pattern is invalid: Type must be HORIZONTAL, VERTICAL, or CORNER!");
+                            "Pattern is invalid: Type must be HORIZONTAL, VERTICAL, or CORNER!"); //$NON-NLS-1$
                 }
             }
         }

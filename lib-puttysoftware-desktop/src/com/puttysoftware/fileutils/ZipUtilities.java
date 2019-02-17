@@ -60,13 +60,13 @@ public final class ZipUtilities {
                 if (entry.isDirectory() && !file.exists()) {
                     final boolean res = file.mkdirs();
                     if (!res) {
-                        throw new IOException("Couldn't make folders!");
+                        throw new IOException("Couldn't make folders!"); //$NON-NLS-1$
                     }
                 } else {
                     if (!file.getParentFile().exists()) {
                         final boolean res = file.getParentFile().mkdirs();
                         if (!res) {
-                            throw new IOException("Couldn't make folders!");
+                            throw new IOException("Couldn't make folders!"); //$NON-NLS-1$
                         }
                     }
                     try (InputStream in = archive.getInputStream(entry);

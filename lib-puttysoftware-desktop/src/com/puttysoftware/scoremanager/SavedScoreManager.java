@@ -63,7 +63,7 @@ public class SavedScoreManager extends ScoreManager {
     }
 
     private void readScoresFile() throws IOException {
-        try (XDataReader xdr = new XDataReader(this.scoresFilename, "scores")) {
+        try (XDataReader xdr = new XDataReader(this.scoresFilename, "scores")) { //$NON-NLS-1$
             this.table = SortedScoreTable.readSortedScoreTable(xdr);
             xdr.close();
         } catch (final IOException ioe) {
@@ -72,7 +72,7 @@ public class SavedScoreManager extends ScoreManager {
     }
 
     private void writeScoresFile() throws IOException {
-        try (XDataWriter xdw = new XDataWriter(this.scoresFilename, "scores")) {
+        try (XDataWriter xdw = new XDataWriter(this.scoresFilename, "scores")) { //$NON-NLS-1$
             this.table.writeSortedScoreTable(xdw);
             xdw.close();
         } catch (final IOException ioe) {

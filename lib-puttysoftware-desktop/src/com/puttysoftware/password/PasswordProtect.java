@@ -40,9 +40,9 @@ public class PasswordProtect {
     // Methods
     public static void setPassword(XDataWriter passwordFile) {
         PasswordProtect.createComponents();
-        PasswordProtect.passwordFrame.setTitle("Set Password");
+        PasswordProtect.passwordFrame.setTitle("Set Password"); //$NON-NLS-1$
         PasswordProtect.passwordLabel.setText(
-                "Type the new password below (it will be hidden as you type):");
+                "Type the new password below (it will be hidden as you type):"); //$NON-NLS-1$
         PasswordProtect.passwordField.setText(null);
         PasswordProtect.passwordFrame.pack();
         PasswordProtect.passwordWrite = passwordFile;
@@ -52,9 +52,9 @@ public class PasswordProtect {
 
     public static void promptForPassword(XDataReader passwordFile) {
         PasswordProtect.createComponents();
-        PasswordProtect.passwordFrame.setTitle("Enter Password");
+        PasswordProtect.passwordFrame.setTitle("Enter Password"); //$NON-NLS-1$
         PasswordProtect.passwordLabel.setText(
-                "Type the password below (it will be hidden as you type):");
+                "Type the password below (it will be hidden as you type):"); //$NON-NLS-1$
         PasswordProtect.passwordField.setText(null);
         PasswordProtect.passwordFrame.pack();
         PasswordProtect.passwordRead = passwordFile;
@@ -64,9 +64,9 @@ public class PasswordProtect {
 
     public static void promptForPassword() {
         PasswordProtect.createComponents();
-        PasswordProtect.passwordFrame.setTitle("Enter Password");
+        PasswordProtect.passwordFrame.setTitle("Enter Password"); //$NON-NLS-1$
         PasswordProtect.passwordLabel.setText(
-                "Type the password below (it will be hidden as you type):");
+                "Type the password below (it will be hidden as you type):"); //$NON-NLS-1$
         PasswordProtect.passwordField.setText(null);
         PasswordProtect.passwordFrame.pack();
         PasswordProtect.mode = PasswordProtect.MODE_GET_RAW;
@@ -80,17 +80,15 @@ public class PasswordProtect {
     public static String getPasswordHash() {
         if (PasswordProtect.getSuccess()) {
             return PasswordProtect.hashPassword();
-        } else {
-            return null;
         }
+        return null;
     }
 
     public static boolean waitingForInput() {
         if (PasswordProtect.passwordFrame != null) {
             return PasswordProtect.passwordFrame.isVisible();
-        } else {
-            return false;
         }
+        return false;
     }
 
     protected static int getMode() {
@@ -125,7 +123,7 @@ public class PasswordProtect {
         try {
             check = PasswordProtect.passwordRead.readString();
         } catch (IOException ioe) {
-            check = "";
+            check = ""; //$NON-NLS-1$
         }
         PasswordProtect.success = hashedInput.equals(check);
     }
@@ -133,7 +131,7 @@ public class PasswordProtect {
     private static String hashPassword() {
         try {
             char[] pw = PasswordProtect.passwordField.getPassword();
-            byte[] bytes = Arrays.toString(pw).getBytes("UTF-8");
+            byte[] bytes = Arrays.toString(pw).getBytes("UTF-8"); //$NON-NLS-1$
             byte[] hashed = Hash.hash(bytes);
             for (int x = 0; x < pw.length; x++) {
                 pw[x] = '\0';
@@ -143,7 +141,7 @@ public class PasswordProtect {
             }
             return HexBytes.hexBytes(hashed);
         } catch (UnsupportedEncodingException uee) {
-            return "";
+            return ""; //$NON-NLS-1$
         }
     }
 
@@ -154,7 +152,7 @@ public class PasswordProtect {
             PasswordProtect.passwordField = new JPasswordField();
             PasswordProtect.passwordField.setEchoChar('X');
             PasswordProtect.buttonPanel = new JPanel();
-            PasswordProtect.okButton = new JButton("OK");
+            PasswordProtect.okButton = new JButton("OK"); //$NON-NLS-1$
             PasswordProtect.okButton.setDefaultCapable(true);
             PasswordProtect.okButton.addActionListener(new ActionListener() {
                 @Override
@@ -170,7 +168,7 @@ public class PasswordProtect {
                     PasswordProtect.hideForm();
                 }
             });
-            PasswordProtect.cancelButton = new JButton("Cancel");
+            PasswordProtect.cancelButton = new JButton("Cancel"); //$NON-NLS-1$
             PasswordProtect.cancelButton.setDefaultCapable(false);
             PasswordProtect.cancelButton
                     .addActionListener(new ActionListener() {
