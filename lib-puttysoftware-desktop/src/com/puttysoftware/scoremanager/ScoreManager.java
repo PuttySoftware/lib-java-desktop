@@ -11,6 +11,7 @@ public class ScoreManager {
     // Fields and Constants
     private static final String NAME_PROMPT = "Enter a name for the score list:"; //$NON-NLS-1$
     private static final String DIALOG_TITLE = "Score Manager"; //$NON-NLS-1$
+    public static final boolean SORT_ORDER_ASCENDING = true;
     public static final boolean SORT_ORDER_DESCENDING = false;
     protected SortedScoreTable table;
     private String name;
@@ -64,6 +65,10 @@ public class ScoreManager {
             success = false;
         }
         return success;
+    }
+
+    public boolean checkScore(final long newScore) {
+        return this.table.checkScore(new long[] { newScore });
     }
 
     public boolean checkScore(final long[] newScore) {
