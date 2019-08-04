@@ -30,6 +30,21 @@ public final class GraphicalHelpViewer {
 
     // Constructor
     public GraphicalHelpViewer(final BufferedImageIcon[] pictures,
+            final String[] descriptions) {
+        this.helpContainer = new Container();
+        this.helpContainer.setLayout(new BorderLayout());
+        this.choiceContainer = new Container();
+        this.scrollPane = new JScrollPane(this.choiceContainer);
+        this.scrollPane.setHorizontalScrollBarPolicy(
+                ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        this.scrollPane.setVerticalScrollBarPolicy(
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        this.helpContainer.add(this.scrollPane, BorderLayout.CENTER);
+        this.fill = null;
+        this.updateHelp(pictures, descriptions);
+    }
+
+    public GraphicalHelpViewer(final BufferedImageIcon[] pictures,
             final String[] descriptions, final Color fillColor) {
         this.helpContainer = new Container();
         this.helpContainer.setLayout(new BorderLayout());
@@ -105,9 +120,11 @@ public final class GraphicalHelpViewer {
                     final Dimension d = c.getPreferredSize();
                     final BufferedImage bi = new BufferedImage(d.width,
                             d.height, BufferedImage.TYPE_INT_ARGB);
-                    for (int x = 0; x < d.width; x++) {
-                        for (int y = 0; y < d.height; y++) {
-                            bi.setRGB(x, y, this.fill.getRGB());
+                    if (this.fill != null) {
+                        for (int x = 0; x < d.width; x++) {
+                            for (int y = 0; y < d.height; y++) {
+                                bi.setRGB(x, y, this.fill.getRGB());
+                            }
                         }
                     }
                     c.paintComponents(bi.createGraphics());
