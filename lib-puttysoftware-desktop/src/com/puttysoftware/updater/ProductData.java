@@ -16,13 +16,24 @@ public class ProductData {
     private int bugfixVersion;
     private int codeVersion;
     private int prereleaseVersion;
+    public static final int CODE_PRE_ALPHA = 0;
     public static final int CODE_ALPHA = 1;
     public static final int CODE_BETA = 2;
+    public static final int CODE_RELEASE_CANDIDATE = 3;
     public static final int CODE_STABLE = 4;
 
     // Constructors
     public ProductData() {
         // Do nothing
+    }
+
+    public ProductData(final int major, final int minor, final int bugfix,
+            final int code, final int beta) {
+        this.majorVersion = major;
+        this.minorVersion = minor;
+        this.bugfixVersion = bugfix;
+        this.codeVersion = code;
+        this.prereleaseVersion = beta;
     }
 
     public ProductData(final String update, final String blurb,
@@ -228,5 +239,47 @@ public class ProductData {
      */
     public void setPrereleaseVersion(final int newPrereleaseVersion) {
         this.prereleaseVersion = newPrereleaseVersion;
+    }
+
+    public String getReleaseType() {
+        String rt;
+        if (this.codeVersion == ProductData.CODE_PRE_ALPHA) {
+            rt = "dev";
+        } else if (this.codeVersion == ProductData.CODE_ALPHA) {
+            rt = "alpha";
+        } else if (this.codeVersion == ProductData.CODE_BETA) {
+            rt = "beta";
+        } else if (this.codeVersion == ProductData.CODE_RELEASE_CANDIDATE) {
+            rt = "rc";
+        } else {
+            rt = "";
+        }
+        return rt;
+    }
+
+    public String getVersionString() {
+        if (this.isBetaModeEnabled()) {
+            String rt;
+            if (this.codeVersion == ProductData.CODE_PRE_ALPHA) {
+                rt = "-dev";
+            } else if (this.codeVersion == ProductData.CODE_ALPHA) {
+                rt = "-alpha";
+            } else if (this.codeVersion == ProductData.CODE_BETA) {
+                rt = "-beta";
+            } else if (this.codeVersion == ProductData.CODE_RELEASE_CANDIDATE) {
+                rt = "-RC";
+            } else {
+                rt = "";
+            }
+            return "" + this.majorVersion + "." + this.minorVersion + "."
+                    + this.bugfixVersion + rt + this.prereleaseVersion;
+        } else {
+            return "" + this.majorVersion + "." + this.minorVersion + "."
+                    + this.bugfixVersion;
+        }
+    }
+
+    public boolean isBetaModeEnabled() {
+        return this.codeVersion != ProductData.CODE_STABLE;
     }
 }
