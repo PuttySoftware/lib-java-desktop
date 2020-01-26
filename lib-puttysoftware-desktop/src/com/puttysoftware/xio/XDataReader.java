@@ -103,6 +103,26 @@ public class XDataReader implements AutoCloseable {
         throw new IOException("End of file!"); //$NON-NLS-1$
     }
 
+    public void readOpeningGroup(final String groupName) throws IOException {
+        final String line = this.br.readLine();
+        if (line != null) {
+            XDataReader.validateOpeningTag(
+                    XDataReader.replaceSpecialCharacters(line), groupName);
+        } else {
+            throw new IOException("End of file!");
+        }
+    }
+
+    public void readClosingGroup(final String groupName) throws IOException {
+        final String line = this.br.readLine();
+        if (line != null) {
+            XDataReader.validateClosingTag(
+                    XDataReader.replaceSpecialCharacters(line), groupName);
+        } else {
+            throw new IOException("End of file!");
+        }
+    }
+
     private static void validateOpeningTag(final String tag,
             final String tagType) throws IOException {
         if (!tag.equals("<" + tagType + ">")) { //$NON-NLS-1$ //$NON-NLS-2$
