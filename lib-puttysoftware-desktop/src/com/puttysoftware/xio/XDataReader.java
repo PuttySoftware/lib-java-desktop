@@ -123,6 +123,23 @@ public class XDataReader implements AutoCloseable {
         }
     }
 
+    public String peekNext() throws IOException {
+        this.br.mark(50);
+        final String line = this.br.readLine();
+        if (line != null) {
+            this.br.reset();
+            return line;
+        } else {
+            throw new IOException("End of file!");
+        }
+    }
+
+    public static boolean isGroup(final String s) {
+        final int loc0 = s.indexOf('>') + 1;
+        final int loc2 = s.indexOf('<', loc0);
+        return loc2 == -1;
+    }
+
     private static void validateOpeningTag(final String tag,
             final String tagType) throws IOException {
         if (!tag.equals("<" + tagType + ">")) { //$NON-NLS-1$ //$NON-NLS-2$

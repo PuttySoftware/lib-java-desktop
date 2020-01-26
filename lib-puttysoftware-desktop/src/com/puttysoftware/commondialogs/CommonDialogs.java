@@ -1,5 +1,8 @@
 package com.puttysoftware.commondialogs;
 
+import java.io.File;
+import java.io.FilenameFilter;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -175,6 +178,34 @@ public class CommonDialogs {
                 buttonNames, defaultButton);
     }
 
+    public static File showFileOpenDialog(final File dir,
+            final FilenameFilter filter, final String prompt) {
+        final String[] choices = dir.list(filter);
+        if (choices == null || choices.length == 0) {
+            CommonDialogs.showErrorDialog("No Files To Open!", "Open");
+        } else {
+            final String ext = CommonDialogs.getExtension(choices[0]);
+            for (int z = 0; z < choices.length; z++) {
+                choices[z] = CommonDialogs.getNameWithoutExtension(choices[z]);
+            }
+            final String value = CommonDialogs.showInputDialog(prompt, "Open",
+                    choices, choices[0]);
+            if (value != null) {
+                return new File(
+                        dir.getAbsolutePath() + File.separator + value + ext);
+            }
+        }
+        return null;
+    }
+
+    public static File showFileSaveDialog(final File dir, final String prompt) {
+        final String value = CommonDialogs.showTextInputDialog(prompt, "Save");
+        if (value != null) {
+            return new File(dir.getAbsolutePath() + File.separator + value);
+        }
+        return null;
+    }
+
     /**
      * Sets the default title for dialogs.
      *
@@ -194,5 +225,25 @@ public class CommonDialogs {
      */
     public static void setIcon(final BufferedImageIcon icon) {
         CommonDialogs.ICON = icon;
+    }
+
+    private static String getNameWithoutExtension(final String s) {
+        String ext = null;
+        final int i = s.lastIndexOf('.');
+        if (i > 0 && i < s.length() - 1) {
+            ext = s.substring(0, i);
+        } else {
+            ext = s;
+        }
+        return ext;
+    }
+
+    private static String getExtension(final String s) {
+        String ext = null;
+        final int i = s.lastIndexOf('.');
+        if (i > 0 && i < s.length() - 1) {
+            ext = s.substring(i).toLowerCase();
+        }
+        return ext;
     }
 }
