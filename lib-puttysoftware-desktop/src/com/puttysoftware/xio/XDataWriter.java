@@ -62,6 +62,16 @@ public class XDataWriter implements AutoCloseable {
                 + XDataConstants.STRING_TAG + ">" + XDataWriter.END_OF_LINE); //$NON-NLS-1$
     }
 
+    public void writeOpeningGroup(final String groupName) throws IOException {
+        this.bw.write("<" + XDataWriter.replaceSpecialCharacters(groupName)
+                + ">" + XDataWriter.END_OF_LINE);
+    }
+
+    public void writeClosingGroup(final String groupName) throws IOException {
+        this.bw.write("</" + XDataWriter.replaceSpecialCharacters(groupName)
+                + ">" + XDataWriter.END_OF_LINE);
+    }
+
     private void writeXHeader() throws IOException {
         this.bw.write(XDataConstants.X_HEADER + XDataWriter.END_OF_LINE);
     }
