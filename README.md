@@ -1,3 +1,3 @@
-# lib-java-desktop
+# Desktop
 
 No longer maintained.
